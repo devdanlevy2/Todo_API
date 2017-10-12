@@ -7,6 +7,10 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 
+#
+# def json
+#   JSON.parse(response.body)
+# end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -15,11 +19,12 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # [...]
 RSpec.configuration do |config|
   # [...]
   config.include RequestSpecHelper, type: :request
+  config.include FactoryGirl::Syntax::Methods
   # [...]
 end
 # Add additional requires below this line. Rails is not loaded until this point!

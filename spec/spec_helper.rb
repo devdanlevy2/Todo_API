@@ -13,8 +13,9 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
-
+def json
+  JSON.parse(response.body)
+end
 
 RSpec.configure do |config|
 
